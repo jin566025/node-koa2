@@ -7,5 +7,13 @@
   <body>
     <h1><%= title %></h1>
     <p>EJS Welcome to <%= title %></p>
+    <p><%= msg %></p>
+    <div>
+      <% if (isMe) { %>
+        <a href="#">显示</a>
+      <% } else { %>
+        <button>关注</button>
+      <% } %>
+    </div>
   </body>
 </html>
