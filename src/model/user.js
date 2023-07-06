@@ -1,45 +1,37 @@
 const Sequelize = require("sequelize");
-const seq = require("../seq");
+const seq = require("../db/seq");
 
 const User = seq.define("user", {
-  username: {
+  userName: {
     type: Sequelize.STRING,
     allowNull: false,
+    unique: true,
+    comment: "用户名，唯一",
   },
   password: {
     type: Sequelize.STRING,
     allowNull: false,
+    comment: "密码",
   },
-  nickname: {
+  nickName: {
     type: Sequelize.STRING,
+    allowNull: false,
     comment: "昵称",
   },
-});
-
-const Blog = seq.define("blog", {
-  title: {
+  gender: {
+    type: Sequelize.DECIMAL,
+    allowNull: false,
+    comment: "性别（1男性、2女性、3保密）",
+    defaultValue: 3,
+  },
+  picture: {
     type: Sequelize.STRING,
-    allowNULL: false,
+    comment: "头像图片地址",
   },
-  content: {
+  city: {
     type: Sequelize.STRING,
-    allowNULL: false,
-  },
-  userId: {
-    type: Sequelize.INTEGER,
-    allowNULL: false,
+    comment: "城市",
   },
 });
 
-Blog.belongsTo(User, {
-  foreignKey: "userId",
-});
-
-// User.hasMany(Blog,{
-//   foreignKey: "userId",
-// })
-
-module.exports = {
-  User,
-  Blog,
-};
+module.exports = User
