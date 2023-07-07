@@ -1,6 +1,14 @@
 const { User } = require("../model/index");
 const { formatUser } = require("./_format");
-const register = () => {};
+const createUser = async ({ userName, password, gender = 3, nickName }) => {
+  const result = await User.create({
+    userName,
+    password,
+    gender,
+    nickName: nickName || userName,
+  });
+  return result.dataValues
+};
 const login = () => {};
 const getUserInfo = async ({ userName, password }) => {
   const whereOption = {
@@ -9,7 +17,7 @@ const getUserInfo = async ({ userName, password }) => {
   if (password) {
     whereOption.password = password;
   }
-  console.log("UserUserUserUser",User)
+  console.log("UserUserUserUser", User);
   const result = await User.findOne({
     attributes: ["id", "userName", "nickName", "picture", "city"],
     where: whereOption,
@@ -22,7 +30,7 @@ const getUserInfo = async ({ userName, password }) => {
 };
 
 module.exports = {
-  register,
+  createUser,
   login,
   getUserInfo,
 };
