@@ -17,7 +17,6 @@ const getUserInfo = async ({ userName, password }) => {
   if (password) {
     whereOption.password = password;
   }
-  console.log("UserUserUserUser", User);
   const result = await User.findOne({
     attributes: ["id", "userName", "nickName", "picture", "city"],
     where: whereOption,
