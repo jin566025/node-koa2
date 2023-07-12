@@ -5,6 +5,7 @@ const {
   getProfileBlogList,
   getSquareBlogList,
   getHomeBlogList,
+  getAtCount,
 } = require("../controller/blog.js");
 const blogValidate = require("../validator/blog.js");
 const { genValidator } = require("../middlewares/validator.js");
@@ -51,5 +52,8 @@ router.get("/homeList", async (ctx, next) => {
   }
   ctx.body = await getHomeBlogList({ userId, pageIndex, pageSize });
 });
-
+router.get("/getAtCount", async (ctx, next) => {
+  let { userId } = ctx.request.query;
+  ctx.body = await getAtCount({ userId });
+});
 module.exports = router;

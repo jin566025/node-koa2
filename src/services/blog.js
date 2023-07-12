@@ -1,4 +1,4 @@
-const { Blog, User, UserRelation } = require("../model/index");
+const { Blog, User, UserRelation,AtRalation } = require("../model/index");
 const { formatUser } = require("./_format");
 const createBlog = async ({ userId, content, image }) => {
   const result = await Blog.create({
