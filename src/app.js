@@ -12,11 +12,14 @@ const { REDIS_CONF } = require("./conf/db");
 const { SESSION_SECRET_KEY } = require("./conf/secretKeys");
 const path = require("path");
 const router = require("./routes");
-
+const cors = require('koa2-cors');
 // error handler
 onerror(app);
 
+
+
 // middlewares
+app.use(cors())
 app.use(
   bodyparser({
     enableTypes: ["json", "form", "text"],

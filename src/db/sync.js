@@ -11,7 +11,11 @@ seq
     console.log("err");
   });
 
-seq.sync({ force: true }).then(() => {
-  console.log("sync ok");
-  process.exit();
-});
+seq
+  .sync({
+    // force: true
+  })
+  .then(() => {
+    console.log("sync ok");
+    process.exit();
+  });

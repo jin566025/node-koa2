@@ -26,9 +26,11 @@
     "koa-router": "^7.4.0",
     "koa-static": "^5.0.0",
     "koa-views": "^6.2.0",
+    "koa2-cors": "^2.0.6",
     "mysql2": "^3.4.3",
-    "redis": "^4.6.7",
-    "sequelize": "^6.32.1"
+    "redis": "^3.1.2",
+    "sequelize": "^6.32.1",
+    "xss": "^1.0.14"
   },
   "devDependencies": {
     "cross-env": "^7.0.3",

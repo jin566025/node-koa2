@@ -1,21 +1,21 @@
 const Sequelize = require("sequelize");
-const seq = require("../seq");
+const seq = require("../db/seq");
 
 const Blog = seq.define("blog", {
-  title: {
-    title: Sequelize.STRING,
+  userId: {
+    type: Sequelize.INTEGER,
     allowNULL: false,
+    comment: "用户id",
   },
-  content:{
-    type: Sequelize.STRING,
+  content: {
+    type: Sequelize.TEXT,
     allowNULL: false,
+    comment: "内容",
   },
-  userid:{
+  image: {
     type: Sequelize.STRING,
-    allowNULL: false,
-  }
+    comment: "图片地址",
+  },
 });
 
-module.exports = {
-  Blog,
-};
+module.exports = Blog;
